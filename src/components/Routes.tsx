@@ -9,7 +9,7 @@ import Profile from "../pages/Profile";
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" exact={true} element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route
         path="login/callback"
         element={<LoginCallback loadingElement={<Loading />} />}

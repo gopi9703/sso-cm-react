@@ -3,15 +3,15 @@ import React, { useState, useEffect } from "react";
 import { Button, Header } from "semantic-ui-react";
 
 const Home = () => {
-  const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
+  const { authState, oktaAuth }: any = useOktaAuth();
+  const [userInfo, setUserInfo] = useState<any>(null);
 
   useEffect(() => {
     if (!authState || !authState.isAuthenticated) {
       // When user isn't authenticated, forget any user info
       setUserInfo(null);
     } else {
-      oktaAuth.getUser().then((info) => {
+      oktaAuth.getUser().then((info: any) => {
         setUserInfo(info);
       });
     }
@@ -20,21 +20,6 @@ const Home = () => {
   const login = async () => {
     await oktaAuth.signInWithRedirect();
   };
-
-  const resourceServerExamples = [
-    {
-      label: "Node/Express Resource Server Example",
-      url: "https://github.com/okta/samples-nodejs-express-4/tree/master/resource-server",
-    },
-    {
-      label: "Java/Spring MVC Resource Server Example",
-      url: "https://github.com/okta/samples-java-spring/tree/master/resource-server",
-    },
-    {
-      label: "ASP.NET Core Resource Server Example",
-      url: "https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/resource-server",
-    },
-  ];
 
   if (!authState) {
     return <div>Loading...</div>;

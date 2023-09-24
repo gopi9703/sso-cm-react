@@ -1,5 +1,5 @@
-const CLIENT_ID = "0oabfjjtu6KEmO2bf5d7";
-const ISSUER = "https://dev-00570795.okta.com/oauth2/default";
+const CLIENT_ID = "0oa1u8iecpmLVVEMy0h8";
+const ISSUER = "https://crossmark.oktapreview.com";
 // const OKTA_TESTING_DISABLEHTTPSCHECK =
 //   process.env.OKTA_TESTING_DISABLEHTTPSCHECK || false;
 const REDIRECT_URI = `http://localhost:3000/login/callback`;

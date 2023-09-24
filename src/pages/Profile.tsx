@@ -3,7 +3,7 @@ import { useOktaAuth } from "@okta/okta-react";
 import { Header, Icon, Table } from "semantic-ui-react";
 
 const Profile = () => {
-  const { authState, oktaAuth } = useOktaAuth();
+  const { authState, oktaAuth }: any = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Profile = () => {
               return (
                 <tr key={claimName}>
                   <td>{claimName}</td>
-                  <td id={claimId}>{claimValue.toString()}</td>
+                  <td id={claimId}>{claimValue?.toString()}</td>
                 </tr>
               );
             })}

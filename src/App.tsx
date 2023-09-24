@@ -11,7 +11,7 @@ const oktaAuth = new OktaAuth(config.oidc);
 
 const App = () => {
   const navigate = useNavigate();
-  const restoreOriginalUri = (_oktaAuth, originalUri) => {
+  const restoreOriginalUri = (_oktaAuth: any, originalUri: any) => {
     navigate(toRelativeUrl(originalUri || "/", window.location.origin));
   };
 

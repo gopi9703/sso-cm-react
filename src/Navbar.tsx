@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Container, Image, Menu } from "semantic-ui-react";
 
 const Navbar = () => {
-  const { authState, oktaAuth } = useOktaAuth();
+  const { authState, oktaAuth }: any = useOktaAuth();
 
   const login = async () => oktaAuth.signInWithRedirect();
   const logout = async () => oktaAuth.signOut();
