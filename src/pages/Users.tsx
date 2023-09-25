@@ -30,7 +30,7 @@ const Users = () => {
             </p>
           </div>
         ) : (
-          <h1>you are allowed to see users list.</h1>
+          <h1 className="text-center">you are allowed to see users list.</h1>
         )}
       </div>
     </>

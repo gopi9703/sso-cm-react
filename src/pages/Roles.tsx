@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import RolesService from "services/RolesService";
 
 const Roles = () => {
-  const [showForBiddenMsg, setShowForBiddenMsg] = useState(false);
-
-  // const isAuthenticated =
-  //   !authState || !authState.isAuthenticated ? null : authState.idToken.claims;
+  const [showForBiddenMsg, setShowForBiddenMsg] = useState<boolean>(false);
 
   useEffect(() => {
     getRoleTypes();
