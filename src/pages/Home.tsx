@@ -1,6 +1,8 @@
 import { useOktaAuth } from "@okta/okta-react";
 import React, { useState, useEffect } from "react";
 import { Button, Header } from "semantic-ui-react";
+import AuthService from "services/AuthService";
+import TokenService from "services/TokenService";
 
 const Home = () => {
   const { authState, oktaAuth }: any = useOktaAuth();
@@ -13,6 +15,21 @@ const Home = () => {
     } else {
       oktaAuth.getUser().then((info: any) => {
         setUserInfo(info);
+        const isAuthenticated =
+          !authState || !authState.isAuthenticated
+            ? null
+            : authState.idToken.claims;
+
+        AuthService.checkUserExistViaEmail(
+          isAuthenticated?.preferred_username.toLowerCase()
+        ).then(
+          (_response) => {
+            TokenService.setUser(_response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
       });
     }
   }, [authState, oktaAuth]); // Update if authState changes
