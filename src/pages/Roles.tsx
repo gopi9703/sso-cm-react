@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import AuthService from "services/AuthService";
-import { useOktaAuth } from "@okta/okta-react";
-import TokenService from "services/TokenService";
 import RolesService from "services/RolesService";
 
 const Roles = () => {
-  const { authState }: any = useOktaAuth();
   const [showForBiddenMsg, setShowForBiddenMsg] = useState(false);
 
   // const isAuthenticated =
@@ -13,17 +9,6 @@ const Roles = () => {
 
   useEffect(() => {
     getRoleTypes();
-    // AuthService.checkUserExistViaEmail(
-    //   isAuthenticated?.preferred_username.toLowerCase()
-    // ).then(
-    //   (_response) => {
-    //     TokenService.setUser(_response);
-    //     getRoleTypes();
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
   }, []);
 
   const getRoleTypes = () => {
@@ -47,7 +32,11 @@ const Roles = () => {
             You do not have permissions to access page you are trying to access.
           </p>
         </div>
-      ) : null}
+      ) : (
+        <div className="text-center">
+          <h1>You are allowed to access roles.</h1>
+        </div>
+      )}
     </>
   );
 };
